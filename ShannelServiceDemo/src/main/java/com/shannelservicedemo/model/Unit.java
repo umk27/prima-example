@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.ZonedDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "Unit")
@@ -27,11 +28,10 @@ public class Unit {
     @Setter
     private String unitName;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn()
+    @OneToMany(cascade = CascadeType.ALL)
     @Getter
     @Setter
-    private SCS SCS;
+    private List<SCS> ListSCS;
 
     @Column(name = "UserArc", columnDefinition = "BIGINT")
     @Getter
