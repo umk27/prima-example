@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  database:
+    image: postgres:16.2
+    container_name: channel-service-db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=channel-service-db
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    volumes:
+      - channel-service-db:/var/lib/postgresql/data/
+    networks:
+      - channel-service-db
+
+volumes:
+  channel-service-db:
+
+networks:
+  channel-service-db:
